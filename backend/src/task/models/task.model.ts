@@ -4,16 +4,17 @@ import { Field, Int, ObjectType } from '@nestjs/graphql';
 export class Task {
   @Field(() => Int)
   id: number;
-
   @Field()
   name: string;
-
   @Field()
   dueDate: string;
-
   @Field()
   status: 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED';
-
-  @Field({ nullable: true })
+  @Field({
+    nullable: true,
+    // name: 'desc',
+    // description: 'タスクの説明',
+    // defaultValue: 'default',
+  })
   description: string;
 }
